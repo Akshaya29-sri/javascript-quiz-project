@@ -36,4 +36,14 @@ if(answer===currentQuestion.correctAnswer){
     hasEnded(){
 return this.currentQuestionIndex>=this.questions.length;
     }
+
+    filterQuestion(difficultyLevel){
+return this.questions.filter((question)=>question.difficulty===difficultyLevel);
+
+    }
+    averageDifficulty(){
+        const total=this.questions.reduce((sum,question)=>sum+question.difficulty,0);
+        return this.questions.length ? total/this.questions.length:0;
+
+    }
 }
